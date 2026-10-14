@@ -1,64 +1,76 @@
 import streamlit as st
-from google import genai
-from google.genai.types import HttpOptions
 import chromadb
 from sentence_transformers import SentenceTransformer
+from google import genai
+from google.genai import types
+from google.genai.types import HttpOptions
 
-# 1. Configuración de la página de Streamlit
-st.set_page_config(
-    page_title="Transportes - Buscador Legal RAG",
-    page_icon="⚖️",
-    layout="wide"
-)
+st.set_page_config(page_title="Megaleyes - Consulta Legal", layout="wide")
+st.title("⚖️ Megaleyes: Asistente Legal RAG")
 
-st.title("⚖️ Megaleyes: Asistente de Consulta Legal")
-st.write("Realiza preguntas sobre las normativas y artículos legales indexados.")
-
-# 2. Inicializar cliente de Google GenAI y base de datos con caché
 @st.cache_resource
 def inicializar_recursos():
-    # Inicializa el cliente moderno compatible con los nuevos tokens
-    cliente = genai.Client(
+    # 1. Cliente Gemini con el nuevo SDK oficial
+    cliente_gemini = genai.Client(
         api_key=st.secrets["GEMINI_API_KEY"],
         http_options=HttpOptions(api_version="v1")
     )
     
-    # Cargar modelo de embeddings local
-    modelo_embeddings = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-    
-    # Conectar con ChromaDB local
+    # 2. Conexión segura a la base de datos persistente ChromaDB
     cliente_chroma = chromadb.PersistentClient(path="chroma_db")
-    coleccion = cliente_chroma.get_collection(name="leyes_rag")
     
-    return cliente, modelo_embeddings, coleccion
+    # Conectamos con la colección confirmada: 'leyes_rag'
+    try:
+        coleccion = cliente_chroma.get_collection(name="leyes_rag")
+    except Exception:
+        coleccion = cliente_chroma.create_collection(name="leyes_rag")
+        
+    # 3. Carga del modelo local de embeddings
+    modelo_embed = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+    
+    return cliente_gemini, coleccion, modelo_embed
 
 try:
-    cliente_gemini, modelo_embeddings, coleccion = inicializar_recursos()
+    cliente_gemini, coleccion, modelo_embed = inicializar_recursos()
+    
+    # Indicador de estado en la barra lateral
+    total_docs = coleccion.count()
+    st.sidebar.success(f" Base de datos: {total_docs} fragmentos disponibles.")
 except Exception as e:
-    st.error(f"Error al inicializar los recursos o la base de datos: {e}")
+    st.error(f"Error al inicializar los recursos: {e}")
     st.stop()
 
-# 3. Interfaz de usuario para la consulta
-consulta_usuario = st.text_input("¿Qué consulta legal deseas realizar?", placeholder="Ej: ¿Cuáles son las sanciones por...?")
+# Interfaz de consulta
+consulta_usuario = st.text_input("Haz tu consulta legal:")
 
 if consulta_usuario:
-    with st.spinner("Buscando en los documentos legales y generando respuesta..."):
+    with st.spinner("Buscando en la normativa y redactando respuesta..."):
         try:
-            # Generar embedding de la consulta del usuario
-            vector_consulta = modelo_embeddings.encode(consulta_usuario).tolist()
-            
-            # Buscar fragmentos relevantes en ChromaDB
+            # 1. Generar embedding vectorial de la pregunta localmente
+            vector_consulta = modelo_embed.encode(consulta_usuario).tolist()
+
+            # 2. Búsqueda semántica en ChromaDB (Recuperando 8 fragmentos para mayor cobertura)
             resultados = coleccion.query(
                 query_embeddings=[vector_consulta],
-                n_results=3
+                n_results=8
             )
-            
+
+            # Extraer textos encontrados
             documentos_recuperados = resultados['documents'][0] if resultados['documents'] else []
-            contexto = "\n\n---\n\n".join(documentos_recuperados)
             
-            # Construcción del prompt con contexto legal
-            prompt = f"""
-Eres un asistente legal experto. Utiliza exclusivamente el siguiente contexto legal para responder a la pregunta del usuario. Si la respuesta no está en el contexto, indícalo claramente.
+            if not documentos_recuperados:
+                st.warning("No se han recuperado textos relevantes.")
+            else:
+                contexto = "\n\n---\n\n".join(documentos_recuperados)
+
+                # 3. Prompt estricto anti-alucinaciones
+                prompt = f"""
+Eres un asistente legal extremadamente riguroso. Tu única fuente de verdad es el Contexto Legal proporcionado a continuación.
+
+REGLAS ESTRICTAS:
+1. Responde únicamente utilizando la información explícita que aparece en el contexto.
+2. No inventes artículos, plazos, multas ni supuestos que no estén escritos textualmente.
+3. Si la respuesta exacta no se encuentra en el contexto proporcionado, responde obligatoriamente y sin añadir nada más: "No lo he visto".
 
 Contexto Legal:
 {contexto}
@@ -66,24 +78,28 @@ Contexto Legal:
 Pregunta del usuario:
 {consulta_usuario}
 
-Respuesta profesional y fundamentada:
+Respuesta:
 """
-            
-            # Generación de respuesta usando el cliente moderno
-            response = cliente_gemini.models.generate_content(
-                model="gemini-3.5-flash-lite",
-                contents=prompt
-            )
-            
-            # Mostrar resultado en pantalla
-            st.markdown("### Respuesta:")
-            st.write(response.text)
-            
-            with st.expander("Ver fuentes legales consultadas"):
-                for i, doc in enumerate(documentos_recuperados, 1):
-                    st.markdown(f"**Fragmento {i}:**")
-                    st.write(doc)
-                    st.markdown("---")
-                    
+
+                # 4. Generación con Gemini 3.5 Flash-Lite (Temperatura 0.0)
+                respuesta = cliente_gemini.models.generate_content(
+                    model="gemini-3.5-flash-lite",
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        temperature=0.0
+                    )
+                )
+
+                # Mostrar respuesta
+                st.markdown("### Respuesta:")
+                st.write(respuesta.text)
+
+                # Desplegable para auditoría / depuración de fragmentos
+                with st.expander("🔍 Ver los 8 fragmentos recuperados de la base de datos"):
+                    for i, doc in enumerate(documentos_recuperados, 1):
+                        st.markdown(f"**Fragmento {i}:**")
+                        st.write(doc)
+                        st.markdown("---")
+
         except Exception as e:
-            st.error(f"Error al generar la respuesta con la API de Google: {e}")
+            st.error(f"Error procesando la consulta: {e}")
