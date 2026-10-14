@@ -23,10 +23,13 @@ except:
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Usamos un modelo rápido y eficiente de Gemini
-cliente_gemini = genai.Client(
-    api_key=st.secrets["GEMINI_API_KEY"],
-    http_options=HttpOptions(api_version="v1")
+response = cliente_gemini.models.generate_content(
+    model="gemini-3.5-flash-lite",  # O "gemini-1.5-flash"
+    contents=prompt
 )
+
+respuesta_texto = response.text
+
 # Inicializar ChromaDB de forma persistente
 @st.cache_resource
 def cargar_chroma():
