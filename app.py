@@ -10,8 +10,8 @@ st.set_page_config(
     layout="centered"
 )
 
-st.title("⚖️ Asistente Jurídico Inteligente (RAG)")
-st.markdown("Pregúntame sobre las megaleyes de transporte y seguridad vial. Las respuestas se generan mediante IA basándose estrictamente en los textos oficiales.")
+st.title("⚖️ Asistente Jurídico de Transportes Inteligente (RAG)")
+st.markdown("Pregúntame sobre transporte y seguridad vial. Las respuestas se generan mediante IA basándose estrictamente en los textos oficiales.")
 
 # Configurar la API de Gemini usando los secrets de Streamlit (seguro para GitHub)
 # O puedes poner tu clave directamente entre comillas para pruebas en local
