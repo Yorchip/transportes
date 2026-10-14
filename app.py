@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 
 # 1. Configuración de la página de Streamlit
 st.set_page_config(
-    page_title="Megaleyes - Buscador Legal RAG",
+    page_title="Transportes - Buscador Legal RAG",
     page_icon="⚖️",
     layout="wide"
 )
@@ -28,7 +28,7 @@ def inicializar_recursos():
     
     # Conectar con ChromaDB local
     cliente_chroma = chromadb.PersistentClient(path="chroma_db")
-    coleccion = cliente_chroma.get_collection(name="leyes_megaleyes")
+    coleccion = cliente_chroma.get_collection(name="leyes_rag")
     
     return cliente, modelo_embeddings, coleccion
 
