@@ -1,4 +1,2 @@
 streamlit
-chromadb==1.5.9
-sentence-transformers
 google-genai
