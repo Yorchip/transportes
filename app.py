@@ -1,71 +1,64 @@
 import streamlit as st
-import chromadb
-from chromadb.utils import embedding_functions
+import glob
+import os
 from google import genai
 from google.genai import types
 from google.genai.types import HttpOptions
 
 st.set_page_config(page_title="Megaleyes - Consulta Legal", layout="wide")
-st.title("⚖️ Megaleyes: Asistente Legal RAG")
+st.title("⚖️ Megaleyes: Asistente Legal")
 
 @st.cache_resource
-def inicializar_recursos():
-    fn_embedding = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name="paraphrase-multilingual-MiniLM-L12-v2"
-    )
-    cliente_chroma = chromadb.PersistentClient(path="chroma_db")
-    coleccion = cliente_chroma.get_collection(
-        name="leyes_rag", 
-        embedding_function=fn_embedding
-    )
-    cliente_gemini = genai.Client(
+def cargar_leyes():
+    # Lee todos los archivos .txt y .md de la carpeta 'leyes'
+    archivos = glob.glob("leyes/*.txt") + glob.glob("leyes/*.md")
+    textos = []
+    
+    for ruta in archivos:
+        with open(ruta, "r", encoding="utf-8") as f:
+            nombre_archivo = os.path.basename(ruta)
+            textos.append(f"--- INICIO ARCHIVO: {nombre_archivo} ---\n{f.read()}\n--- FIN ARCHIVO ---")
+            
+    # Une todos los archivos en una sola gran masa de conocimiento
+    return "\n\n".join(textos), len(archivos)
+
+@st.cache_resource
+def inicializar_gemini():
+    return genai.Client(
         api_key=st.secrets["GEMINI_API_KEY"],
         http_options=HttpOptions(api_version="v1")
     )
-    return cliente_gemini, coleccion
 
 try:
-    cliente_gemini, coleccion = inicializar_recursos()
-    total_docs = coleccion.count()
-    st.sidebar.success(f"Base de datos: {total_docs} fragmentos disponibles.")
+    contexto_completo, num_archivos = cargar_leyes()
+    cliente_gemini = inicializar_gemini()
+    st.sidebar.success(f" Base de conocimiento cargada: {num_archivos} archivos leídos.")
 except Exception as e:
-    st.error(f"Error al inicializar los recursos: {e}")
+    st.error(f"Error cargando las leyes o cliente: {e}")
     st.stop()
 
-consulta_usuario = st.text_input("Haz tu consulta legal (ej: código, multa, concepto):")
+consulta_usuario = st.text_input("Haz tu consulta legal:")
 
 if consulta_usuario:
-    with st.spinner("Buscando en profundidad en la normativa..."):
+    with st.spinner("Analizando la normativa completa y redactando respuesta..."):
         try:
-            # Subimos a 25 resultados para asegurar que el fragmento correcto entra sí o sí
-            resultados = coleccion.query(
-                query_texts=[consulta_usuario],
-                n_results=25
-            )
+            prompt = f"""
+Eres un asistente legal de máxima precisión. Tienes a continuación la normativa legal completa. Tu objetivo es analizarla toda para responder a la consulta del usuario relacionando conceptos.
 
-            documentos_recuperados = resultados['documents'][0] if resultados['documents'] else []
-            
-            if not documentos_recuperados:
-                st.warning("No se ha encontrado nada en la base de datos.")
-            else:
-                contexto = "\n\n---\n\n".join(documentos_recuperados)
-
-                # Prompt diseñado para que Gemini filtre entre la gran cantidad de fragmentos
-                prompt = f"""
-Eres un asistente legal de precisión. Tienes a continuación un conjunto amplio de fragmentos legales recuperados. Tu misión es buscar con lupa dentro de ellos el código, artículo o infracción exacto que responde a la consulta del usuario.
-
-REGLAS:
-1. Revisa minuciosamente todos los fragmentos. Si encuentras la infracción o concepto solicitado, responde estrictamente con este formato esquemático y sin rodeos:
+REGLAS DE RESPUESTA:
+1. Sé extremadamente directo y conciso. Evita explicaciones largas o de relleno.
+2. Si la consulta implica una infracción, sanción o denuncia, debes estructurarla obligatoriamente así, salvo que tengas más conceptos para poner:
    - **Código:** [Código de la infracción si aparece, ej: AA01.05]
    - **Concepto:** [Descripción breve]
    - **Normas Infringidas:** [Artículos o normas aplicables]
    - **Cuantía:** [Importe si consta]
-   - **Inmovilización:** [Indica si procede o no]
-2. Si tras revisar exhaustivamente todos los fragmentos la respuesta exacta NO está en ninguno de ellos, responde obligatoriamente y sin añadir nada más: "No lo he visto".
-3. No inventes ningún dato que no esté escrito textualmente en los textos.
+   - **Inmovilización:** [Indica si procede o no según la normativa]
+3. Bástate exclusivamente en la información contenida en el texto.
+4. Si encuentras algún texto con la explicación del concepto para denunciar, puedes preguntar si el usuario la quiere y entonces ponerla.
+5. Si la información solicitada NO aparece en los textos proporcionados, responde únicamente: "No lo he visto".
 
-Contexto Legal:
-{contexto}
+Normativa Legal Completa:
+{contexto_completo}
 
 Consulta del usuario:
 {consulta_usuario}
@@ -73,22 +66,16 @@ Consulta del usuario:
 Respuesta:
 """
 
-                respuesta = cliente_gemini.models.generate_content(
-                    model="gemini-3.5-flash-lite",
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        temperature=0.2  # Bajamos a 0.2 para que sea preciso filtrando entre tanto texto
-                    )
+            respuesta = cliente_gemini.models.generate_content(
+                model="gemini-3.5-flash-lite",
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    temperature=0.2
                 )
+            )
 
-                st.markdown("### Respuesta:")
-                st.write(respuesta.text)
-
-                with st.expander("🔍 Ver los 25 fragmentos analizados"):
-                    for i, doc in enumerate(documentos_recuperados, 1):
-                        st.markdown(f"**Fragmento {i}:**")
-                        st.write(doc)
-                        st.markdown("---")
+            st.markdown("### Respuesta:")
+            st.write(respuesta.text)
 
         except Exception as e:
             st.error(f"Error procesando la consulta: {e}")
