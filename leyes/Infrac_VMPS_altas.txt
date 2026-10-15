@@ -1,0 +1,144 @@
+## NUEVAS NORMAS CIRCULACION OCTUBRE 2026
+ # Norma: VEH LSV
+Artículo: 22
+67
+Apartado: B-2 1
+Opción: 5A
+Puntos: 0
+Infracción: NO DISPONER UN VEHÍCULO DE MOVILIDAD PERSONAL DEL CERTIFICADO DE CIRCULACIÓN QUE GARANTIZA EL CUMPLIMIENTO DE LOS
+REQUISITOS TÉCNICOS EXIGIBLES
+Observaciones: Especificar los requisitos técnicos del vehículo denunciado coincidentes con los de un VMP (peso, velocidad máxima, etc.), aportando toda documentación
+o prueba que sea posible.
+Multa: 200
+100
+Responsable: Titular Conductor
+Comentario: Para vehículos que cumplen con las características técnicas de un VMP, pero no tienen certificado de circulación. No exigible a VMP comercializados antes 22/01/2024 y que pueden circular hasta el
+23/01/2027
+Materia: CONDICIONES TÉCNICAS
+
+ # Norma: VEH LSV
+Artículo: 22
+67
+Apartado: B-2 1
+Opción: 5B
+Puntos: 0
+Infracción: NO INSCRIBIR UN VEHÍCULO DE MOVILIDAD PERSONAL EN EL REGISTRO NACIONAL DE
+VEHÍCULOS
+Observaciones: Especificar nº de certificado, nº de serie, marca y modelo del VMP
+Multa: 100
+50
+Responsable: Titular Conductor
+Comentario: Para VMP que tienen certificado de circulación, o para los
+comercializados antes 22/01/2024 y que pueden circular hasta el 23/01/2027.
+Materia: CONDICIONES TÉCNICAS
+
+ # Norma: VEH LSV
+Artículo: 22
+67
+Apartado: B-2 1
+Opción: 5C
+Puntos: 0
+Infracción: NO DISPONER Y EXHIBIR EN UN VEHÍCULO DE MOVILIDAD PERSONAL LA ETIQUETA IDENTIFICATIVA O LA PLACA DE MARCAJE DE
+FABRICANTE
+Observaciones: Especificar si el VMP no dispone de la etiqueta identificativa, de la placa de marcaje o de ninguna.
+Multa: 80
+40
+Responsable: Titular
+Comentario: Para VMP que tienen certificado de circulación y están inscritos en el Registro Nacional de Vehículos
+Materia: CONDICIONES TÉCNICAS
+
+ # Norma: VEH LSV
+Artículo: 22
+67
+Apartado: B-2 1
+Opción: 5D
+Puntos: 0
+Infracción: NO CUMPLIR EL VEHÍCULO DE MOVILIDAD PERSONAL LOS REQUISITOS TÉCNICOS REGULADOS EN EL ANEXO XXI Y QUE AFECTAN GRAVEMENTE A LA SEGURIDAD VIAL
+Observaciones: Especificar el requisito técnico que se incumple del anexo XXI, ya sea por la realización de una modificación, deterioro, pérdida de un componente u otras causas, y que afecta gravemente a la seguridad vial.
+Multa: 500
+250
+Responsable: Titular
+Comentario: Supuestos de VMP, incluso con certificado de circulación o inscrito en el Rgtro. Vehículos, en los que se incumple algún requisito técnico del anexo XXI por modificación, deterioro, pérdida de un componente u otras causas, afectando gravemente a la seguridad vial. Ej: manipulación control de velocidad para aumentarla, modificación estructural, etc.
+Materia: CONDICIONES TÉCNICAS
+
+ # Norma: VEH LSV
+Artículo: 22
+67
+Apartado: B-2 1
+Opción: 5E
+Puntos: 0
+Infracción: NO CUMPLIR EL VEHÍCULO DE MOVILIDAD PERSONAL LOS REQUISITOS TÉCNICOS REGULADOS EN EL ANEXO XXI
+Observaciones: Especificar el requisito técnico que se incumple del anexo XXI, ya sea por la realización de una modificación, deterioro, pérdida de un componente u otras causas.
+Multa: 200
+100
+Responsable: Titular
+Comentario: Supuestos de VMP, incluso con certificado de circulación o inscritos en el Registro Nacional de Vehículos, en los que se incumple algún requisito técnico del anexo XXI por modificación, deterioro, pérdida de un componente u otras causas. Ej.: no dispone o no funciona el sistema de iluminación, ruedas, etc.
+Materia: CONDICIONES TÉCNICAS
+
+ # Norma: VEH LSV
+Artículo: 22
+67
+Apartado: B-2 1
+Opción: 5F
+Puntos: 0
+Infracción: NO CUMPLIR EL VEHÍCULO DE MOVILIDAD PERSONAL LOS REQUISITOS TÉCNICOS REGULADOS EN EL ANEXO XXI
+Observaciones: Especificar el requisito técnico leve que se incumple del anexo XXI, ya sea por la realización de una modificación, deterioro, pérdida de un componente u otras causas.
+Multa: 80
+40
+Responsable: Titular
+Comentario: Supuestos de VMP, incluso con certificado de circulación o inscritos en el Registro Nacional de Vehículos, en los que se incumple algún requisito técnico leve del anexo XXI por modificación, deterioro, pérdida de un componente u otras causas. Ej.: dispositivo sonoro, pata de cabra.
+Materia: CONDICIONES TÉCNICAS
+
+ # Norma: SDA
+Artículo: 
+Apartado: 1
+Opción: 5A
+Puntos: 0
+Infracción: CIRCULAR EL VEHÍCULO PERSONAL LIGERO SIN QUE CONSTE QUE SU PROPIETARIO TENGA SUSCRITO Y MANTENGA EN VIGOR UN CONTRATO DE SEGURO QUE CUBRA LA RESPONSABILIDAD CIVIL DERIVADA DE SU CIRCULACIÓN.
+Observaciones: Indicar número de identificación (M0000BBB) del VPL
+Multa: 300
+150
+Responsable: Titular
+Comentario: Para VPL con certificado de circulación inscritos en el Registro Nacional de Vehículos con número de identificación (según definición establecida en anexo II del Rgto. Gen. de Vehículos y en d. a. 1ª de la Ley 5/2025) que circulan sin seguro obligatorio
+Materia: SEGURO
+
+ # Norma: SDA
+Artículo: 
+Apartado: 1
+Opción: 5B
+Puntos: 0
+Infracción: INCUMPLIR EL PROPIETARIO DE UN VEHÍCULO PERSONAL LIGERO LA OBLIGACIÓN DE SUSCRIBIR Y MANTENER EN VIGOR UN CONTRATO DE SEGURO QUE CUBRA LA RESPONSABILIDAD CIVIL DERIVADA DE SU
+CIRCULACIÓN.
+Observaciones: Indicar número de identificación (M0000BBB) del VPL
+Multa: 200
+100
+Responsable: Titular
+Comentario: Para VPL con certificado de circulación inscritos en el Reg de Vehículos con número de identificación (según definición establecida en anexo II del Rgto. Gen. de Vehículos y en d. a. 1ª de la Ley 5/2025) que carecen de seguro obligatorio
+Materia: SEGURO
+
+ # Norma: SOA
+Artículo: 2
+Apartado: 1
+Opción: 5N
+Puntos: 0
+Infracción: CIRCULAR EL VEHÍCULO RESEÑADO SIN QUE CONSTE QUE SU PROPIETARIO TENGA SUSCRITO Y MANTENGA EN VIGOR UN CONTRATO DE SEGURO QUE CUBRA LA RESPONSABILIDAD CIVIL DERIVADA DE SU CIRCULACIÓN.
+Observaciones: Indicar número de identificación (M0000BBB) o, en su defecto, número de serie y número de certificado que consta en la placa de marcaje. Si no tuviera ninguno, especificar requisitos técnicos (peso, velocidad máxima, etc.)
+Multa: 800
+400
+Responsable: Titular
+Comentario: Se denunciará por este precepto circular sin seguro con un VMP (> 25 kg. MOM) que no es VPL. También para denunciar otros vehículos a motor (según definición del art. 1 bis de la ley del seguro, R. D. L. 8/2004, de 29 de octubre) que no son susceptibles de matricularse (no cumplen los requisitos del Reglamento UE nº 168/2013)
+Materia: SEGURO
+
+ # Norma: SOA
+Artículo: 2
+Apartado: 1
+Opción: 5O
+Puntos: 0
+Infracción: INCUMPLIR EL PROPIETARIO DEL VEHÍCULO RESEÑADO LA OBLIGACIÓN DE SUSCRIBIR Y MANTENER EN VIGOR UN CONTRATO DE SEGURO QUE CUBRA LA RESPONSABILIDAD CIVIL DERIVADA DE SU CIRCULACIÓN.
+Observaciones: Indicar número de identificación (M0000BBB) o, en su defecto, número de serie y número de certificado que consta en la placa de marcaje. Si no tuviera ninguno, especificar requisitos técnicos (peso, velocidad máxima, etc.)
+Multa: 610
+305
+Responsable: Titular
+Comentario: Se denunciará por este precepto carecer de seguro en un VMP (25 kg. MOM) que no es VPL. También para denunciar otros vehículos a motor (según definición del art. 1 bis de la ley del seguro, R. D. L. 8/2004, de 29 de octubre) que no son susceptibles de matricularse (no cumplen los requisitos del Reglamento UE nº 168/2013)
+Materia: SEGURO
+
