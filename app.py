@@ -6,21 +6,25 @@ from google.genai import types
 from google.genai.types import HttpOptions
 
 st.set_page_config(page_title="Megaleyes - Consulta Legal", layout="wide")
-st.title("⚖️ Megaleyes: Asistente Legal")
+st.title("⚖️ Megaleyes: Asistente Legal RAG")
 
 @st.cache_resource
-def cargar_leyes():
-    # Lee todos los archivos .txt y .md de la carpeta 'leyes'
-    archivos = glob.glob("leyes/*.txt") + glob.glob("leyes/*.md")
-    textos = []
+def cargar_textos():
+    # Lee todos los archivos .md y .txt de la carpeta 'leyes'
+    archivos = glob.glob("leyes/*.md") + glob.glob("leyes/*.txt")
+    bloques_totales = []
     
     for ruta in archivos:
         with open(ruta, "r", encoding="utf-8") as f:
             nombre_archivo = os.path.basename(ruta)
-            textos.append(f"--- INICIO ARCHIVO: {nombre_archivo} ---\n{f.read()}\n--- FIN ARCHIVO ---")
-            
-    # Une todos los archivos en una sola gran masa de conocimiento
-    return "\n\n".join(textos), len(archivos)
+            contenido = f.read()
+            # Dividimos el archivo en fragmentos por párrafos o artículos para buscar con precisión
+            parrafos = contenido.split("\n\n")
+            for p in parrafos:
+                if p.strip():
+                    bloques_totales.append({"origen": nombre_archivo, "texto": p})
+                    
+    return bloques_totales, len(archivos)
 
 @st.cache_resource
 def inicializar_gemini():
@@ -30,20 +34,38 @@ def inicializar_gemini():
     )
 
 try:
-    contexto_completo, num_archivos = cargar_leyes()
+    base_conocimiento, num_archivos = cargar_textos()
     cliente_gemini = inicializar_gemini()
-    st.sidebar.success(f" Base de conocimiento cargada: {num_archivos} archivos leídos.")
+    st.sidebar.success(f"Base de conocimiento: {num_archivos} archivos cargados.")
 except Exception as e:
-    st.error(f"Error cargando las leyes o cliente: {e}")
+    st.error(f"Error cargando los archivos: {e}")
     st.stop()
 
 consulta_usuario = st.text_input("Haz tu consulta legal:")
 
 if consulta_usuario:
-    with st.spinner("Analizando la normativa completa y redactando respuesta..."):
+    with st.spinner("Buscando en la normativa..."):
         try:
+            # Búsqueda inteligente en Python: filtramos fragmentos que contengan alguna palabra de la consulta
+            palabras_clave = [w.lower() for w in consulta_usuario.split() if len(w) > 2]
+            
+            fragmentos_relevantes = []
+            for bloque in base_conocimiento:
+                texto_lower = bloque["texto"].lower()
+                # Si coincide alguna palabra clave importante o código, seleccionamos el fragmento
+                if any(palabra in texto_lower for palabra in palabras_clave):
+                    fragmentos_relevantes.append(f"[{bloque['origen']}]\n{bloque['texto']}")
+            
+            # Si no encuentra coincidencia exacta por palabra, cogemos una muestra general para no fallar
+            if not fragmentos_relevantes:
+                fragmentos_relevantes = [f"[{b['origen']}]\n{b['texto']}" for b in base_conocimiento[:30]]
+            
+            # Limitamos a los fragmentos más directos (máximo 15 para cuidar los tokens)
+            contexto_filtrado = "\n\n---\n\n".join(fragmentos_relevantes[:15])
+
+            # Prompt con tus reglas exactas
             prompt = f"""
-Eres un asistente legal de máxima precisión. Tienes a continuación la normativa legal completa. Tu objetivo es analizarla toda para responder a la consulta del usuario relacionando conceptos.
+Eres un asistente legal experto. Tienes a continuación fragmentos de la normativa legal relacionados con la consulta.
 
 REGLAS DE RESPUESTA:
 1. Sé extremadamente directo y conciso. Evita explicaciones largas o de relleno.
@@ -57,8 +79,8 @@ REGLAS DE RESPUESTA:
 4. Si encuentras algún texto con la explicación del concepto para denunciar, puedes preguntar si el usuario la quiere y entonces ponerla.
 5. Si la información solicitada NO aparece en los textos proporcionados, responde únicamente: "No lo he visto".
 
-Normativa Legal Completa:
-{contexto_completo}
+Normativa Recuperada:
+{contexto_filtrado}
 
 Consulta del usuario:
 {consulta_usuario}
