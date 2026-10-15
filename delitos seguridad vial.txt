@@ -1,0 +1,222 @@
+Guía técnica sobre los **delitos contra la seguridad vial** (Capítulo IV, Título XVII del Código Penal, Arts. 379 a 385 ter) y la línea divisoria que los separa de las **infracciones administrativas** de la Ley de Seguridad Vial (LSV) y el Reglamento General de Circulación (RGCir).
+
+---
+
+### 1. Exceso de Velocidad (Art. 379.1 CP)
+* **Vía Penal (Delito):** Se tipifica como delito la conducción de un vehículo a motor o ciclomotor a una velocidad superior a la permitida en **más de 60 km/h en vía urbana** o en **más de 80 km/h en vía interurbana**. 
+  * **Criterio técnico de prueba:** Se exige aplicar el **Error Máximo Permitido (EMP)** del cinemómetro (*in dubio pro reo*) sobre la velocidad leída. El delito solo existe si la velocidad neta resultante tras restar el margen supera el umbral (+61 km/h o +81 km/h).
+  * **Travesías:** Por regla general jurisprudencial, se aplican los límites de las vías interurbanas (+80 km/h).
+* **Vía Administrativa (Mención):** Si tras descontar el margen de error la velocidad excedida no alcanza el umbral de +61/+80 km/h, o si se trata de un simple incumplimiento del deber de moderar la velocidad (Art. 46 RGCir), la conducta se sanciona administrativamente con multa de 100 € a 600 € y la pérdida de hasta 6 puntos conforme al Anexo IV de la LSV.
+
+---
+
+### 2. Conducción bajo la Influencia de Alcohol (Art. 379.2 CP)
+* **Vía Penal (Delito):** Contempla dos modalidades típicas:
+  1. **Tasa objetiva (Art. 379.2 *in fine*):** Conducir con una tasa de alcohol en aire espirado **superior a 0,60 mg/l** (o 1,2 g/l en sangre). Para imputar este delito atendiendo *únicamente a la cifra*, la jurisprudencia del Tribunal Supremo (SSTS 788/2023 y 789/2023) exige que la menor de las mediciones en etilómetro evidencial sea de **al menos 0,66 mg/l** (para garantizar los >0,60 mg/l tras descontar el 7,5% del error metrológico).
+  2. **Tasa genérica / Sintomatología (Art. 379.2 *inciso 1º*):** Conducir "bajo la influencia" con tasas comprendidas entre **0,40 mg/l y 0,65 mg/l**. Requiere probar de forma asertiva la afección real en la conducción (maniobras anómalas, accidente) acompañada del acta de signos externos de embriaguez.
+* **Vía Administrativa (Mención):** Tasas de 0,25 a 0,60 mg/l en conductores generales (o de 0,15 a 0,30 mg/l en noveles y profesionales) sin síntomas mermantes se sancionan con 500 € a 1.000 € y detracción de 4 a 6 puntos.
+
+---
+
+### 3. Conducción bajo la Influencia de Drogas (Art. 379.2 CP)
+* **Vía Penal (Delito):** Exige **demostrar la influencia efectiva** de la sustancia en las facultades psico-físicas de la conducción (capacidad de reacción, percepción, atención) mediante la sintomatología externa y/o la conducción anómala. Según la STS 610/2023, la simple presencia en el organismo acreditada por el laboratorio **no constituye delito** si no consta probada la alteración en la conducción.
+* **Vía Administrativa (Mención):** La mera **presencia de drogas** en el organismo (test salival indiciario + confirmatorio de laboratorio) constituye infracción administrativa muy grave sancionada con **1.000 € y 6 puntos** (Art. 14.1 LSV), salvo fármacos bajo prescripción facultativa y fin terapéutico que no afecten a la conducción.
+
+---
+
+### 4. Conducción Temeraria y con Manifiesto Desprecio (Arts. 380 y 381 CP)
+* **Vía Penal (Delito):**
+  * **Conducción Temeraria Genérica (Art. 380.1 CP):** Exige dos requisitos acumulativos: **temeridad manifiesta** (infracción notoria de las reglas elementales de tráfico) **Y la creación de un concreto peligro** para la vida o integridad de personas determinadas (pasajeros no partícipes, peatones o terceros usuarios).
+  * **Presunción de Temeridad (Art. 380.2 CP):** Se reputa automáticamente temeraria la conducción en la que concurran **simultáneamente** el exceso de velocidad penal (+60/+80 km/h) **Y** la tasa de alcohol penal (>0,60 mg/l), exigiendo asimismo el peligro concreto.
+  * **Conducción "Suicida" / Kamikaze (Art. 381 CP):** Modalidad agravada caracterizada por el **manifiesto desprecio por la vida de los demás** (circulación dolosa en sentido contrario por autovía, carreras ilegales en zonas peatonales). Es punible tanto con peligro concreto (Art. 381.1 CP) como en situación de peligro abstracto/general (Art. 381.2 CP).
+* **Vía Administrativa (Mención):** La conducción temeraria sin la concreción de un peligro real sobre la vida o integridad de personas identificables constituye infracción administrativa muy grave (500 € y 6 puntos, Art. 3.1 RGCir / Art. 77.e LSV).
+
+---
+
+### 5. Negativa a Someterse a las Pruebas (Art. 383 CP)
+* **Vía Penal (Delito):** Delito de desobediencia especial que castiga al conductor de un **vehículo de motor o ciclomotor** que, tras requerimiento formal de los agentes (en control preventivo, infracción, síntomas o accidente), se niega a someterse a las pruebas de alcoholemia o drogas.
+  * **Alcance:** Abarca tanto la negativa inicial como la negativa a realizar la **segunda prueba de contraste obligatoria** en etilómetro o a facilitar la muestra salival de confirmación (STS 210/2017).
+* **Vía Administrativa (Mención):** La negativa a someterse a las pruebas solo es infracción administrativa (1.000 €, Art. 77.d LSV) cuando el obligado es un usuario que **no conduce un vehículo de motor o ciclomotor** (ciclistas, conductores de VMP, o peatones implicados en un siniestro o infracción).
+
+---
+
+### 6. Grave Riesgo para la Circulación / Obstáculos (Art. 385 CP)
+* **Vía Penal (Delito):** Castiga la creación dolosa de un riesgo grave para la seguridad vial mediante:
+  1. Colocación de obstáculos imprevisibles, derramamiento doloso de sustancias deslizantes/inflamables o mutación/anulación de la señalización (Art. 385.1ª CP).
+  2. No restablecer la seguridad de la vía cuando existiera la obligación legal de hacerlo (Art. 385.2ª CP).
+* **Vía Administrativa (Mención):** Si el vertido u obstáculo fue involuntario/imprudente, o la alteración de la señalización no generó un riesgo grave para la circulación, se encuadra como infracción administrativa a la Ley de Seguridad Vial (Arts. 4.2 y 5.1 RGCir - 80 € a 200 €) o por la Ley de Seguridad Ciudadana (LOPSC Art. 36.3).
+
+---
+
+### 7. Abandono del Lugar del Accidente (Art. 382 bis CP)
+* **Vía Penal (Delito):** Se castiga al conductor de un vehículo de motor o ciclomotor que abandona el lugar tras causar un accidente en el que se produzcan **fallecidos o lesiones graves** (Arts. 147.1, 149 y 150 CP). 
+  * **Distinción con la Omisión del Deber de Socorro (Art. 195 CP):** El Art. 195 CP sanciona no auxiliar a una persona *desamparada y en peligro manifiesto*. El Art. 382 bis CP sanciona la fuga por la sola causación del accidente y se aplica **incluso aunque la víctima ya esté siendo atendida por terceros o haya fallecido en el acto**.
+* **Vía Administrativa (Mención):** Ausentarse del lugar del accidente cuando solo se han producido daños materiales o lesiones leves sin facilitar los datos personales es infracción administrativa grave (200 €, Art. 129 RGCir / Art. 76.q LSV).
+
+---
+
+### 8. Conducción sin Permiso o Licencia (Art. 384 CP)
+* **Vía Penal (Delito):** Abarca tres supuestos tasados:
+  1. Pérdida de vigencia del permiso por **pérdida total de los puntos** (requiere notificación personal/firme previa).
+  2. Conducir tras haber sido **privado del permiso por resolución/sentencia judicial**.
+  3. Conducir **sin haber obtenido NUNCA** permiso o licencia de conducción.
+* **Vía Administrativa (Mención):** Conducir con el permiso caducado (Art. 12 RGCon - 200 €), conducir un vehículo de categoría superior a la autorizada (p. ej., permiso B conduciendo camión C - 500 € y 4 puntos) o circular con un permiso extranjero no homologado en España constituyen infracciones administrativas y **no son delito** del Art. 384 CP.
+
+---
+
+Esta guía reúne de forma sistemática el régimen de infracciones aplicable a los **Vehículos de Movilidad Personal (VMP)** conforme a la **Ordenanza de Movilidad de València (OMV)**, integrando la **Ley 5/2025 del Seguro Obligatorio**, el **Real Decreto 52/2026** y la **Instrucción DGT SANC 2026/13**.
+
+---
+
+### 1. Régimen de Infracciones de la Ordenanza de Movilidad de València (OMV)
+
+La Ordenanza municipal clasifica los VMP en dos categorías según sus dimensiones y peso: **Tipo A** (ligeros/autoequilibrados) y **Tipo B** (patinetes eléctricos de mayor tamaño). En el municipio de València, la edad mínima para conducir un VMP en vías públicas es de **16 años**.
+
+#### **Infracciones Leves (Hasta 100 €)**
+* **Estacionamiento antirreglamentario:** Estacionar amarrado a árboles/elementos no autorizados, obstaculizando aceras de menos de 1,80 m o sobre pavimento podotáctil.
+* **Incumplimientos genéricos:** Infracciones a la ordenanza que no estén calificadas expresamente como graves o muy graves.
+
+#### **Infracciones Graves (101 € a 200 €)**
+* **Circulación por aceras y zonas peatonales:** Prohibida la circulación de VMP por las aceras. En calles peatonales solo se permite el VMP Tipo A a velocidad peatonal (\\(\le 10\text{ km/h}\\)); el VMP Tipo B tiene prohibida la entrada en calles peatonales.
+* **Exceso de velocidad municipal:** Superar los límites fijados para VMP (20 km/h en carril bici en calzada, 15 km/h en acera bici, 10 km/h en zonas peatonales autorizadas o parques).
+* **No usar casco de protección:** En València el uso del casco es **obligatorio para conductores de VMP Tipo B**.
+* **Uso del teléfono móvil:** Conducir sujetando con la mano el teléfono móvil o utilizando otros dispositivos de comunicación. *(Sancionado con 200 € según Art. 76.g LSV)*.
+* **Uso de auriculares:** Circular utilizando cascos o auriculares conectados a reproductores de sonido. *(Sancionado con 200 € según Art. 76.f LSV)*.
+* **Transporte de pasajeros (Pasajeros > 1):** Circular más de una persona en el VMP (capacidad máxima de 1 plaza).
+* **Conductores menores de 16 años:** Circular en vía pública no teniendo la edad mínima permitida de 16 años.
+* **Conducción negligente o realizar maniobras peligrosas**.
+* **Circular por vías o zonas prohibidas:** Transitar por travesías, vías interurbanas, autopistas/autovías urbanas o túneles urbanos.
+
+#### **Infracciones Muy Graves (201 € a 500 €)**
+* **Exceso de velocidad grave:** Exceder en más de un 50% la velocidad máxima autorizada.
+* **Conducción temeraria o poner en grave riesgo a otros usuarios**.
+* **Alcoholemia y Drogas:** Circular con tasas de alcohol superiores a las permitidas o con presencia de drogas. *(Tasa general \\(\ge 0,25\text{ mg/l}\\) sancionada con 500 € a 1.000 €; drogas 1.000 €)*.
+* **Carecer del seguro de responsabilidad civil obligatorio** cuando corresponda.
+
+---
+
+### 2. Novedades de la Ley del Seguro (Ley 5/2025) y Clasificación de Vehículos
+
+La **Ley 5/2025** crea el **Seguro Obligatorio de Responsabilidad Civil para los Vehículos Personales Ligeros (VPL)** e introduce una distinción técnica fundamental según el peso y la velocidad de fabricación:
+
+1. **Vehículo Personal Ligero (VPL):**
+   * VMP de 1 plaza, motor eléctrico, con velocidad entre 6 y 25 km/h si su peso es \\(< 25\text{ kg}\\), o velocidad entre 6 y 14 km/h si su peso es \\(> 25\text{ kg}\\).
+   * **Requisitos para la exigibilidad del seguro (SDA):** Para sancionar la falta de seguro en un VPL, la Ley y la DGT exigen que cumpla de forma acumulativa tres requisitos previos:
+     1. Disponer de **Certificado de Circulación**.
+     2. Estar **Inscrito en el Registro Nacional de Vehículos** (Sección VPL).
+     3. Exhibir la **Etiqueta Identificativa**.
+   * **Infracciones de Seguro para VPL (si cumple los 3 requisitos):**
+     * **SDA._.1.5A (300 €):** Circular con un Vehículo Personal Ligero sin seguro obligatorio.
+     * **SDA._.1.5B (200 €):** Incumplir el propietario la obligación de suscribir el seguro.
+     * *(Si el VPL no cumple alguno de los tres requisitos previos, está exento de la sanción de seguro SDA)*.
+
+2. **Resto de VMP (No VPL – Ej. Peso \\(> 25\text{ kg}\\) y Velocidad \\(15\text{ a }25\text{ km/h}\\)):**
+   * Pasan a ser considerados legalmente **"Vehículos a Motor"** (Art. 1 bis RDL 8/2004).
+   * Les aplica el régimen general del Seguro Obligatorio de Automóviles (**SOA**), independientemente de que tengan o no certificado o registro.
+   * **Infracciones de Seguro:**
+     * **SOA.2.1.5N (800 €):** Circular sin seguro obligatorio.
+     * **SOA.2.1.5O (610 €):** Incumplir el propietario la obligación de suscribir el seguro.
+
+---
+
+### 3. Nuevas Infracciones Reglamentarias de Tráfico (RD 52/2026 y RGV)
+
+El **Real Decreto 52/2026** modifica el Reglamento General de Vehículos (Art. 22 bis) y la **Instrucción DGT SANC 2026/13** establece la codificación oficial de denuncias:
+
+| Concepto Infraccional | Precepto / Código | Calificación | Importe | Observaciones Operativas |
+| :--- | :--- | :---: | :---: | :--- |
+| **Falta de Certificado de Circulación** | Art. 22 bis.2.a RGV<br/>**VEH.22.B-2.5A** | Grave | **200 €** | Exigible a los comercializados a partir del 22/01/2024. Los comercializados antes disfrutan de moratoria hasta el **22/01/2027**. |
+| **Falta de Inscripción en el Registro (RNV)** | Art. 22 bis.2.b RGV<br/>**VEH.22.B-2.5B** | Leve | **100 €** | Obligación de inscribirse en el Registro Nacional de Vehículos (sección VPL). |
+| **Sin Etiqueta Identificativa o Marcaje** | Art. 22 bis.2.c RGV<br/>**VEH.22.B-2.5C** | Leve | **80 €** | No exhibir la etiqueta adhesiva (M0000BBB) o la placa de marcaje del fabricante. |
+| **Manipulación Técnica Grave (Velocidad)** | Anexo XXI RGV<br/>**VEH.22.B-2.5D** | Muy Grave | **500 €** | Manipular la unidad de control o motor para superar los 25 km/h o modificación estructural. |
+| **Deficiencias Técnicas (Luces/Frenos/Ruedas)** | Anexo XXI RGV<br/>**VEH.22.B-2.5E** | Grave | **200 €** | Alumbrado ineficaz, frenos defectuosos o uso de **neumáticos lisos/slick** (prohibidos). |
+| **Falta de Avisador Acústico o Pata de Cabra** | Anexo XXI RGV<br/>**VEH.22.B-2.5F** | Leve | **80 €** | Ausencia de timbre o sistema de estabilización en aparcamiento. |
+
+#### **"Falsos VMP" y Ciclomotores Encubiertos**
+* **Vehículos con prestaciones superiores a VMP** (asiento sin autoequilibrio, velocidad \\(> 25\text{ km/h}\\), o potencia \\(> 1.000\text{ W}\\) sin autoequilibrio / \\(> 2.500\text{ W}\\) con autoequilibrio):
+  * Pierden la consideración de VMP y se clasifican como **ciclomotores (L1e-B)** o vehículos a motor.
+  * **Denuncias aplicables:**
+    1. Circular sin autorización administrativa del vehículo (*VEH.1.1.5B*): **500 €**.
+    2. Circular sin seguro obligatorio de ciclomotor (*SOA.2.1.5F/N*): **800 € a 1.000 €**.
+    3. Conducir sin el permiso de conducir requerido (clase AM/B): **500 €** (*CON.1.1*).
+    4. **Inmovilización e ingreso en depósito municipal obligatorio**.
+
+---
+
+### 4. Medidas Provisionales de Inmovilización (Art. 104 LSV / Arts. 125 y 126 OMV)
+
+Los agentes de la autoridad procederán a la **inmovilización y retirada al depósito municipal** del VMP en los siguientes supuestos:
+1. Resultado positivo en alcohol o drogas, o negativa a someterse a las pruebas.
+2. Deficiencias técnicas que supongan un riesgo especialmente grave para la seguridad vial.
+3. Circular de noche sin alumbrado reglamentario generando riesgo grave.
+4. "Falso VMP" o vehículo no matriculado que requiera autorización administrativa.
+5. Negativa a abonar la sanción en el acto si el conductor no acredita residencia legal en España.
+
+Guía técnica y operativa sobre las **causas legales y municipales de inmovilización de vehículos**, estructurada conforme a la Ley de Seguridad Vial (LSV), la Ordenanza de Movilidad de València (OMV) y las ordenanzas sectoriales aplicables en el municipio.
+
+---
+
+### 1. Causas Generales de Inmovilización (Art. 104 de la Ley de Seguridad Vial)
+
+Los agentes de la autoridad encargados de la vigilancia del tráfico pueden proceder a la inmovilización de cualquier vehículo (a motor, ciclomotor, ciclo o VMP) en los siguientes supuestos legales:
+
+1. **Carencia de Autorización Administrativa para circular:** Cuando el vehículo no haya obtenido el permiso de circulación, haya sido objeto de anulación o declaración de pérdida de vigencia, o se halle dado de baja.
+2. **Deficiencias Técnicas Graves:** Cuando el vehículo presente fallos que supongan un riesgo especialmente grave para la seguridad vial (ITV con resultado negativo, neumáticos con los alambres/carcasa al descubierto, o elementos con aristas cortantes).
+3. **Falta de Casco o Sistema de Retención Infantil (SRI):** Cuando el conductor o pasajero no haga uso del casco obligatorio (en motocicletas, ciclomotores, quads o VMP Tipo B) o del SRI para menores en turismos, hasta que se subsane la deficiencia. *(Esta medida no se aplica a ciclistas ni al uso de SRI en ciclos o VMP)*.
+4. **Alcohol y Drogas:** Cuando el conductor arroje resultado positivo en las pruebas de detección alcohólica o de drogas, o cuando se niegue abiertamente a someterse a las mismas. *(No procede la inmovilización si una persona debidamente habilitada se hace cargo del vehículo en el acto)*.
+5. **Carecer del Seguro Obligatorio (SOA / SDA):** Por circular o mantener en la vía pública un vehículo a motor o Vehículo Personal Ligero (VPL) sin tener suscrito y en vigor el contrato de seguro obligatorio correspondiente.
+6. **Exceso de Tiempos de Conducción / Descanso:** Cuando se observe un exceso superior al 50% en los tiempos de conducción o una minoración superior al 50% en los descansos obligatorios en el transporte profesional, salvo sustitución por otro conductor.
+7. **Exceso de Ocupantes:** Cuando la ocupación del vehículo suponga aumentar en un 50% el número de plazas autorizadas, excluida la del conductor.
+8. **Emisión Excesiva de Humos, Gases o Ruidos:** Cuando el vehículo supere los niveles reglamentarios o circule con el escape libre/manipulado.
+9. **Manipulación de Instrumentos de Control:** Existencia de indicios racionales de manipulación en el tacógrafo o en el limitador de velocidad.
+10. **Sistemas de Elusión de Vigilancia / Antirradar:** Llevar instalados inhibidores, detectores de radar o mecanismos destinados a interferir o eludir la captación de imágenes por los agentes (p. ej., ocultación de matrícula). *(En este caso, la inmovilización solo se levanta tras verificar en taller designado la retirada del dispositivo)*.
+11. **Permisos de Conducir Pesados (Clases C / D):** Conducir un vehículo para el que se exige permiso C1, C, D1 o D careciendo de dicha autorización.
+12. **Conductores No Residentes:** Cuando el infractor no acredite su residencia legal en España y se niegue al abono o depósito en el acto de la sanción administrativa.
+
+---
+
+### 2. Causas Específicas de la Ordenanza de Movilidad de València (OMV - Art. 126)
+
+La normativa municipal de València añade las siguientes causas específicas de inmovilización:
+
+* **Accidente o Avería:** Cuando el estado del vehículo tras un siniestro o avería impida continuar la marcha con seguridad.
+* **Pérdida de Condiciones Físicas:** Cuando el conductor pierda las aptitudes físicas necesarias para pilotar y suponga un riesgo para la circulación.
+* **Exceso de Masas y Dimensiones:** Exceder la altura, longitud o anchura autorizadas, o circular con la carga mal acondicionada o con peligro de caída.
+* **Disminución del Campo de Visión:** Cuando la colocación de la carga o el pasaje disminuyan de forma peligrosa la visibilidad o los movimientos del conductor.
+* **Estacionamiento Regulado (Zona Azul / Naranja):** Estacionar sin título habilitante o rebasar en más de 1 hora el tiempo abonado, hasta lograr la identificación formal del conductor.
+* **Estacionamiento en Zonas Prohibidas a la Circulación:** Estacionar en zonas de uso público o peatonal donde la circulación de vehículos esté terminantemente prohibida.
+* **Reformas de Importancia No Autorizadas:** Haber realizado en el vehículo una reforma de importancia sin la preceptiva regularización e inspección ITV.
+* **VMP y Ciclos Defectuosos:** Cuando los VMP o ciclos no cumplan los requisitos técnicos reglamentarios y como consecuencia generen un riesgo grave para la seguridad o las personas.
+* **Vehículos Destinados a Venta / Alquiler / Publicidad:** Estacionar durante más de 72 horas seguidas en la vía pública un vehículo con carteles de venta, alquiler o negocio privado.
+
+---
+
+### 3. Inmovilización por Contaminación Acústica en València
+
+Conforme a la Ordenanza Municipal de Protección contra la Contaminación Acústica de València:
+
+* **Negativa a Controles de Sonometría:** Negarse o no permitir que los agentes realicen los ensayos e inspecciones sonoras al vehículo.
+* **Escape Libre o Silenciador Manipulado:** Circular con el silenciador incompleto, no homologado, deteriorado o modificado.
+* **Exceso de Ruido (>6 dBA):** Cuando la medición efectuada arroje un nivel sonoro que rebase en más de 6 dBA el límite autorizado en la ficha técnica.
+* **Alarmas Continuadas:** Funcionamiento ininterrumpido de la alarma del vehículo por más de 5 minutos provocando perturbación pública.
+
+---
+
+### 4. Inmovilización de Vehículos con Matrícula Extranjera
+
+En aplicación de la Ley de Impuestos Especiales y los protocolos policiales de control documental:
+
+* **Residencia Legal o Establecimiento en España (>30 / 60 Días):** Transcurridos 30 o 60 días desde que el conductor/titular adquirió la residencia o establecimiento en España sin haber iniciado la matriculación definitiva ni haber regularizado o avalado el Impuesto de Matriculación (IEDMT).
+* **Placas Temporales Extranjeras Caducadas:** Circular con permisos o placas de matrícula temporales extranjeras caducadas sin disponer de autorización provisional española.
+
+---
+
+### 5. Garantías Procesales y Procedimiento de Levantamiento
+
+* **Carácter y Principios:** La inmovilización es una medida provisional cautelar (no una sanción) y se rige por los principios de **proporcionalidad, efectividad y menor onerosidad**.
+* **Acta de Inmovilización:** Se debe confeccionar el acta oficial. El quebrantamiento del precinto o de la orden de inmovilización constituye un ilícito administrativo o delito de desobediencia (Art. 556 CP).
+* **Cese de la Medida:** La inmovilización se levantará inmediatamente en cuanto desaparezca la causa que la motivó o se haga cargo un conductor habilitado.
+* **Abono de Gastos:** Todos los costes derivados del traslado, inmovilización y estancia en el depósito corren por cuenta del infractor o del titular del vehículo.
+
+---
+
