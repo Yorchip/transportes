@@ -32,43 +32,37 @@ except Exception as e:
     st.error(f"Error al inicializar los recursos: {e}")
     st.stop()
 
-consulta_usuario = st.text_input("Haz tu consulta legal:")
+consulta_usuario = st.text_input("Haz tu consulta legal (ej: código, multa, concepto):")
 
 if consulta_usuario:
-    with st.spinner("Buscando en la normativa..."):
+    with st.spinner("Buscando en profundidad en la normativa..."):
         try:
-            # Ampliamos a 15 fragmentos para ampliar el margen de acierto
+            # Subimos a 25 resultados para asegurar que el fragmento correcto entra sí o sí
             resultados = coleccion.query(
                 query_texts=[consulta_usuario],
-                n_results=15
+                n_results=25
             )
 
             documentos_recuperados = resultados['documents'][0] if resultados['documents'] else []
             
-            # Mostramos SIEMPRE los fragmentos arriba para saber qué está leyendo
-            with st.expander("🔍 Fragmentos recuperados por ChromaDB (Abre para comprobar)"):
-                for i, doc in enumerate(documentos_recuperados, 1):
-                    st.markdown(f"**Fragmento {i}:**")
-                    st.write(doc)
-                    st.markdown("---")
-
             if not documentos_recuperados:
-                st.warning("ChromaDB no devolvió ningún fragmento para esta búsqueda.")
+                st.warning("No se ha encontrado nada en la base de datos.")
             else:
                 contexto = "\n\n---\n\n".join(documentos_recuperados)
 
+                # Prompt diseñado para que Gemini filtre entre la gran cantidad de fragmentos
                 prompt = f"""
-Eres un asistente legal experto. Tu objetivo es responder la consulta basándote exclusivamente en el Contexto Legal proporcionado.
+Eres un asistente legal de precisión. Tienes a continuación un conjunto amplio de fragmentos legales recuperados. Tu misión es buscar con lupa dentro de ellos el código, artículo o infracción exacto que responde a la consulta del usuario.
 
-INSTRUCCIONES:
-1. Analiza con atención todos los fragmentos del contexto.
-2. Si la consulta involucra una infracción o sanción mencionada o deducible del contexto, redacta la respuesta usando este esquema conciso:
-   - **Código:** [Indica el código si aparece o la referencia]
+REGLAS:
+1. Revisa minuciosamente todos los fragmentos. Si encuentras la infracción o concepto solicitado, responde estrictamente con este formato esquemático y sin rodeos:
+   - **Código:** [Código de la infracción si aparece, ej: AA01.05]
    - **Concepto:** [Descripción breve]
    - **Normas Infringidas:** [Artículos o normas aplicables]
-   - **Cuantía:** [Importe o multa si consta]
-   - **Inmovilización:** [Indica si procede o no según el contexto]
-3. Si la respuesta a la pregunta no se encuentra implícita ni explícitamente en el contexto, responde únicamente: "No lo he visto".
+   - **Cuantía:** [Importe si consta]
+   - **Inmovilización:** [Indica si procede o no]
+2. Si tras revisar exhaustivamente todos los fragmentos la respuesta exacta NO está en ninguno de ellos, responde obligatoriamente y sin añadir nada más: "No lo he visto".
+3. No inventes ningún dato que no esté escrito textualmente en los textos.
 
 Contexto Legal:
 {contexto}
@@ -83,12 +77,18 @@ Respuesta:
                     model="gemini-3.5-flash-lite",
                     contents=prompt,
                     config=types.GenerateContentConfig(
-                        temperature=0.3
+                        temperature=0.2  # Bajamos a 0.2 para que sea preciso filtrando entre tanto texto
                     )
                 )
 
                 st.markdown("### Respuesta:")
                 st.write(respuesta.text)
+
+                with st.expander("🔍 Ver los 25 fragmentos analizados"):
+                    for i, doc in enumerate(documentos_recuperados, 1):
+                        st.markdown(f"**Fragmento {i}:**")
+                        st.write(doc)
+                        st.markdown("---")
 
         except Exception as e:
             st.error(f"Error procesando la consulta: {e}")
