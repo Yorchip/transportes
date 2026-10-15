@@ -32,10 +32,8 @@ except Exception as e:
     st.error(f"Error al inicializar los recursos: {e}")
     st.stop()
 
-# 1. PRIMERO DEFINIMOS EL CAMPO DE TEXTO
 consulta_usuario = st.text_input("Haz tu consulta legal:")
 
-# 2. DESPUÉS COMPROBAMOS SI EL USUARIO HA ESCRITO ALGO
 if consulta_usuario:
     with st.spinner("Buscando en la normativa y redactando respuesta..."):
         try:
@@ -51,14 +49,20 @@ if consulta_usuario:
             else:
                 contexto = "\n\n---\n\n".join(documentos_recuperados)
 
+                # Prompt adaptado para conectar conceptos sin rodeos y estructurar denuncias
                 prompt = f"""
-Eres un asistente legal analítico y conciso. Tu objetivo es responder la consulta relacionando los conceptos del Contexto Legal proporcionado.
+Eres un asistente legal experto. Tu objetivo es cruzar y conectar varios conceptos de la normativa del contexto de forma muy breve y directa. No des explicaciones largas ni te vayas por las ramas.
 
 REGLAS DE RESPUESTA:
-1. Responde de forma clara y directísima, utilizando oraciones cortas y puntos clave.
-2. Sintetiza y conecta los conceptos, artículos o plazos presentes en el contexto para dar una respuesta completa.
-3. Bástate exclusivamente en la información contenida en el contexto. No asumas ni agregues datos externos.
-4. Si el contexto no contiene información suficiente para responder a la consulta, responde únicamente: "No lo he visto".
+1. Sé extremadamente conciso. Ve directo al grano.
+2. Si la consulta implica una infracción, sanción o denuncia, debes estructurarla obligatoriamente con el siguiente formato esquemático:
+   - **Código:** [Ej. AA01.05 u otro que aparezca]
+   - **Concepto:** [...]
+   - **Normas Infringidas:** [...]
+   - **Cuantía:** [...]
+   - **Inmovilización:** [Indicar si procede o no]
+3. Bástate exclusivamente en la información contenida en el contexto. No inventes datos.
+4. Si el contexto no contiene información suficiente para responder, responde únicamente: "No lo he visto".
 
 Contexto Legal:
 {contexto}
@@ -66,14 +70,15 @@ Contexto Legal:
 Consulta del usuario:
 {consulta_usuario}
 
-Respuesta concisa:
+Respuesta:
 """
 
+                # Temperatura ajustada a 0.4 para permitir conexión conceptual ágil sin alucinar
                 respuesta = cliente_gemini.models.generate_content(
                     model="gemini-3.5-flash-lite",
                     contents=prompt,
                     config=types.GenerateContentConfig(
-                        temperature=0.2
+                        temperature=0.4
                     )
                 )
 
