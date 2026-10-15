@@ -35,34 +35,40 @@ except Exception as e:
 consulta_usuario = st.text_input("Haz tu consulta legal:")
 
 if consulta_usuario:
-    with st.spinner("Buscando en la normativa y redactando respuesta..."):
+    with st.spinner("Buscando en la normativa..."):
         try:
+            # Ampliamos a 15 fragmentos para ampliar el margen de acierto
             resultados = coleccion.query(
                 query_texts=[consulta_usuario],
-                n_results=8
+                n_results=15
             )
 
             documentos_recuperados = resultados['documents'][0] if resultados['documents'] else []
             
+            # Mostramos SIEMPRE los fragmentos arriba para saber qué está leyendo
+            with st.expander("🔍 Fragmentos recuperados por ChromaDB (Abre para comprobar)"):
+                for i, doc in enumerate(documentos_recuperados, 1):
+                    st.markdown(f"**Fragmento {i}:**")
+                    st.write(doc)
+                    st.markdown("---")
+
             if not documentos_recuperados:
-                st.warning("No se han recuperado textos relevantes.")
+                st.warning("ChromaDB no devolvió ningún fragmento para esta búsqueda.")
             else:
                 contexto = "\n\n---\n\n".join(documentos_recuperados)
 
-                # Prompt adaptado para conectar conceptos sin rodeos y estructurar denuncias
                 prompt = f"""
-Eres un asistente legal experto. Tu objetivo es cruzar y conectar varios conceptos de la normativa del contexto de forma muy breve y directa. No des explicaciones largas ni te vayas por las ramas.
+Eres un asistente legal experto. Tu objetivo es responder la consulta basándote exclusivamente en el Contexto Legal proporcionado.
 
-REGLAS DE RESPUESTA:
-1. Sé extremadamente conciso. Ve directo al grano.
-2. Si la consulta implica una infracción, sanción o denuncia, debes estructurarla obligatoriamente con el siguiente formato esquemático:
-   - **Código:** [Ej. AA01.05 u otro que aparezca]
-   - **Concepto:** [...]
-   - **Normas Infringidas:** [...]
-   - **Cuantía:** [...]
-   - **Inmovilización:** [Indicar si procede o no]
-3. Bástate exclusivamente en la información contenida en el contexto. No inventes datos.
-4. Si el contexto no contiene información suficiente para responder, responde únicamente: "No lo he visto".
+INSTRUCCIONES:
+1. Analiza con atención todos los fragmentos del contexto.
+2. Si la consulta involucra una infracción o sanción mencionada o deducible del contexto, redacta la respuesta usando este esquema conciso:
+   - **Código:** [Indica el código si aparece o la referencia]
+   - **Concepto:** [Descripción breve]
+   - **Normas Infringidas:** [Artículos o normas aplicables]
+   - **Cuantía:** [Importe o multa si consta]
+   - **Inmovilización:** [Indica si procede o no según el contexto]
+3. Si la respuesta a la pregunta no se encuentra implícita ni explícitamente en el contexto, responde únicamente: "No lo he visto".
 
 Contexto Legal:
 {contexto}
@@ -73,23 +79,16 @@ Consulta del usuario:
 Respuesta:
 """
 
-                # Temperatura ajustada a 0.4 para permitir conexión conceptual ágil sin alucinar
                 respuesta = cliente_gemini.models.generate_content(
                     model="gemini-3.5-flash-lite",
                     contents=prompt,
                     config=types.GenerateContentConfig(
-                        temperature=0.4
+                        temperature=0.3
                     )
                 )
 
                 st.markdown("### Respuesta:")
                 st.write(respuesta.text)
-
-                with st.expander("🔍 Ver fragmentos recuperados"):
-                    for i, doc in enumerate(documentos_recuperados, 1):
-                        st.markdown(f"**Fragmento {i}:**")
-                        st.write(doc)
-                        st.markdown("---")
 
         except Exception as e:
             st.error(f"Error procesando la consulta: {e}")
